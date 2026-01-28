@@ -44,6 +44,7 @@ header {
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
@@ -58,6 +59,7 @@ nav {
 
 .nav-links {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     gap: 2rem;
     align-items: center;
@@ -95,6 +97,7 @@ nav {
 
 .user-info {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
 }
@@ -115,6 +118,7 @@ nav {
     text-decoration: none;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
@@ -175,6 +179,7 @@ nav {
     overflow: hidden;
     min-height: 250px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -611,6 +616,7 @@ nav {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -767,6 +773,7 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -803,6 +810,7 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     z-index: 20;
 }
@@ -1236,6 +1244,7 @@ nav {
 
 .filter-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
@@ -1260,6 +1269,7 @@ nav {
 
 .cart-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem 0;
@@ -1293,12 +1303,14 @@ nav {
 
 .cart-item-actions {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
 }
 
 .quantity-control {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
 }
@@ -1311,6 +1323,7 @@ nav {
     background-color: var(--bg-light);
     cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
@@ -1427,6 +1440,7 @@ nav {
 
 .quantity-selector {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
@@ -1577,6 +1591,7 @@ footer {
     overflow: hidden;
     min-height: 300px;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
     text-decoration: none;
@@ -2020,6 +2035,7 @@ footer {
     
     .auth-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         width: 100%;
         margin-top: 10px;
