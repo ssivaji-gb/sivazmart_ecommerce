@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy - Your One-Stop Ecommerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Add this to the head section of index.html -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+    <a href="index.html" class="logo">
+        <span class="logo-text">sivazmart</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li>
+            <a href="cart.html" class="cart-icon">
+                Cart (<span class="cart-count">0</span>)
+            </a>
+        </li>
+        <li class="auth-container">
+            <div id="authButtons" style="display: flex; gap: 1rem;">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div id="userInfo" class="user-info" style="display: none;">
+                <span id="userName"></span>
+                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+            </div>
+        </li>
+    </ul>
+</nav>
+    </header>
+
+    <!-- Hero Section -->
+<!-- Premium Carousel Banner -->
+<section class="hero">
+    <!-- Carousel Banner -->
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <!-- Slide 1: Fashion/Summer Collection -->
+            <div class="carousel-slide active" 
+                 style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <span class="carousel-badge" data-aos="fade-down">Summer 2024</span>
+                    <h2 data-aos="fade-up" data-aos-delay="200">Luxury Summer Collection</h2>
+                    <p data-aos="fade-up" data-aos-delay="400">Experience elegance with our exclusive summer fashion line</p>
+                    <a href="products.html?category=fashion" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
+                        Shop Collection
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 2: New Arrivals -->
+            <div class="carousel-slide" 
+                 style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <span class="carousel-badge" data-aos="fade-down">New Arrivals</span>
+                    <h2 data-aos="fade-up" data-aos-delay="200">Exclusive Premium Selection</h2>
+                    <p data-aos="fade-up" data-aos-delay="400">Discover our latest collection of luxury products</p>
+                    <a href="products.html" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
+                        Explore New Arrivals
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Luxury Lifestyle -->
+            <div class="carousel-slide" 
+                 style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80')">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <span class="carousel-badge" data-aos="fade-down">Free Shipping</span>
+                    <h2 data-aos="fade-up" data-aos-delay="200">Elevate Your Lifestyle</h2>
+                    <p data-aos="fade-up" data-aos-delay="400">Free shipping on orders over ₹5000. Use code: LUXURY500</p>
+                    <a href="products.html" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
+                        Shop Now
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Electronics Premium -->
+            <div class="carousel-slide" 
+                 style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <span class="carousel-badge" data-aos="fade-down">Premium Tech</span>
+                    <h2 data-aos="fade-up" data-aos-delay="200">State-of-the-Art Electronics</h2>
+                    <p data-aos="fade-up" data-aos-delay="400">Experience innovation with our premium technology collection</p>
+                    <a href="products.html?category=electronics" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
+                        Shop Electronics
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carousel Controls -->
+        <button class="carousel-btn-prev" onclick="carouselPrev()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button class="carousel-btn-next" onclick="carouselNext()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <span class="indicator active" onclick="carouselGoto(0)"></span>
+            <span class="indicator" onclick="carouselGoto(1)"></span>
+            <span class="indicator" onclick="carouselGoto(2)"></span>
+            <span class="indicator" onclick="carouselGoto(3)"></span>
+        </div>
+        
+        <!-- Carousel Progress Bar -->
+        <div class="carousel-progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container hero-content">
+        <h1 data-aos="fade-up">Welcome to sivazmart</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Discover exclusive luxury products at exceptional prices. 
+           Shop from our premium collections across various categories.</p>
+        <a href="products.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">
+            Explore Collections
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+        </a>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEasy</h3>
+                    <p>Your trusted ecommerce platform for all your shopping needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+</html>
