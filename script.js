@@ -1262,3 +1262,213 @@ document.addEventListener('DOMContentLoaded', () => {
         carouselInterval = setInterval(autoSlide, 5000);
     }
 });
+
+
+// Responsive Utilities
+class ResponsiveUtils {
+    static isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    static isTablet() {
+        return window.innerWidth > 768 && window.innerWidth <= 1024;
+    }
+
+    static isDesktop() {
+        return window.innerWidth > 1024;
+    }
+
+    static getDeviceType() {
+        if (this.isMobile()) return 'mobile';
+        if (this.isTablet()) return 'tablet';
+        return 'desktop';
+    }
+
+    static adjustForMobile() {
+        if (this.isMobile()) {
+            // Disable parallax on mobile for better performance
+            const banners = document.querySelectorAll('.category-banner-image');
+            banners.forEach(banner => {
+                banner.style.backgroundAttachment = 'scroll';
+            });
+            
+            // Simplify animations on mobile
+            document.body.classList.add('mobile-view');
+        }
+    }
+
+    static handleResize() {
+        this.adjustForMobile();
+        
+        // Update cart layout if needed
+        const cartItems = document.getElementById('cartItems');
+        if (cartItems && this.isMobile()) {
+            cartItems.style.flexDirection = 'column';
+        }
+        
+        // Update carousel height based on viewport
+        const carousel = document.querySelector('.carousel-container');
+        if (carousel) {
+            if (this.isMobile()) {
+                carousel.style.height = '300px';
+            } else if (this.isTablet()) {
+                carousel.style.height = '400px';
+            } else {
+                carousel.style.height = '600px';
+            }
+        }
+    }
+
+    static initializeTouchEvents() {
+        // Add touch event listeners for better mobile UX
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+            });
+        });
+    }
+}
+
+// Initialize responsive features
+document.addEventListener('DOMContentLoaded', () => {
+    ResponsiveUtils.adjustForMobile();
+    ResponsiveUtils.initializeTouchEvents();
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            ResponsiveUtils.handleResize();
+        }, 250);
+    });
+});
+
+// Add mobile menu toggle for small screens
+function createMobileMenu() {
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!nav || !navLinks) return;
+    
+    // Create mobile menu button
+    const menuButton = document.createElement('button');
+    menuButton.className = 'mobile-menu-btn';
+    menuButton.innerHTML = '☰';
+    menuButton.style.cssText = `
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-color);
+        padding: 0.5rem;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        z-index: 1000;
+    `;
+    
+    nav.style.position = 'relative';
+    nav.insertBefore(menuButton, nav.firstChild);
+    
+    // Toggle menu function
+    menuButton.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        menuButton.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
+            navLinks.classList.remove('show');
+            menuButton.textContent = '☰';
+        }
+    });
+    
+    // Show/hide based on screen size
+    function updateMenuVisibility() {
+        if (ResponsiveUtils.isMobile()) {
+            menuButton.style.display = 'block';
+            navLinks.classList.remove('show');
+            menuButton.textContent = '☰';
+        } else {
+            menuButton.style.display = 'none';
+            navLinks.classList.add('show');
+        }
+    }
+    
+    updateMenuVisibility();
+    window.addEventListener('resize', updateMenuVisibility);
+}
+
+// Initialize mobile menu when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    createMobileMenu();
+    
+    // Add touch-friendly styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            
+            .nav-links:not(.show) {
+                display: none !important;
+            }
+            
+            .nav-links.show {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-color);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                z-index: 999;
+            }
+            
+            .nav-links.show li {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            /* Touch-friendly button sizing */
+            .btn, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Prevent text selection on tap */
+            .btn, button, a {
+                -webkit-tap-highlight-color: transparent;
+                user-select: none;
+            }
+            
+            /* Improve form input sizing */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
+        
+        /* Hover effects only on non-touch devices */
+        @media (hover: hover) {
+            .btn:hover {
+                transform: translateY(-2px);
+            }
+            
+            .product-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});

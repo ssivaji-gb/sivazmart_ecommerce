@@ -6,6 +6,33 @@
     <title>All Products - ShopEasy</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Add these meta tags for better mobile experience -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="320">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!-- iOS specific -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="ShopEasy">
+
+<!-- Android specific -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2563eb">
+
+<!-- Windows Phone -->
+<meta name="msapplication-TileColor" content="#2563eb">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+<!-- Prevent zoom on input focus in iOS -->
+<style>
+    @media screen and (max-width: 768px) {
+        input, select, textarea {
+            font-size: 16px !important;
+        }
+    }
+</style>
 </head>
 <body>
     <header>

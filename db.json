@@ -307,25 +307,18 @@
       "userId": 2,
       "items": [
         {
-          "productId": 2,
-          "title": "Samsung Galaxy S24",
-          "price": 84999,
-          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
           "productId": 1,
           "title": "iPhone 15 Pro",
           "price": 99999,
           "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
-          "qty": 1
+          "qty": 6
         },
         {
           "productId": 3,
           "title": "Sony Headphones",
           "price": 19999,
           "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
-          "qty": 1
+          "qty": 2
         }
       ],
       "createdAt": "2026-01-28T04:59:53.128Z"
