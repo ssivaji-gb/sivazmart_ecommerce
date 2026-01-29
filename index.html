@@ -6,6 +6,8 @@
     <title>ShopEasy - Your One-Stop Ecommerce</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Add this to the head section of index.html -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <!-- Add these meta tags for better mobile experience -->
@@ -39,26 +41,28 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="container">
+      <nav class="container">
     <a href="index.html" class="logo">
         <span class="logo-text">sivazmart</span>
     </a>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html" title="Home"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+        <li><a href="products.html" title="Products"><i class="fas fa-shopping-bag"></i><span class="nav-text">Products</span></a></li>
         <li>
-            <a href="cart.html" class="cart-icon">
-                Cart (<span class="cart-count">0</span>)
+            <a href="cart.html" class="cart-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="nav-text">Cart</span>
+                <span class="cart-count">0</span>
             </a>
         </li>
         <li class="auth-container">
             <div id="authButtons" style="display: flex; gap: 1rem;">
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
+                <a href="login.html" class="btn btn-outline" title="Login"><i class="fas fa-sign-in-alt"></i><span class="btn-text">Login</span></a>
+                <a href="register.html" class="btn btn-primary" title="Register"><i class="fas fa-user-plus"></i><span class="btn-text">Register</span></a>
             </div>
             <div id="userInfo" class="user-info" style="display: none;">
                 <span id="userName"></span>
-                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                <button id="logoutBtn" class="btn btn-outline" title="Logout"><i class="fas fa-sign-out-alt"></i><span class="btn-text">Logout</span></button>
             </div>
         </li>
     </ul>
@@ -140,17 +144,14 @@
             </div>
         </div>
         
+        
         <!-- Carousel Controls -->
-        <button class="carousel-btn-prev" onclick="carouselPrev()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 19l-7-7 7-7"/>
-            </svg>
-        </button>
-        <button class="carousel-btn-next" onclick="carouselNext()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 5l7 7-7 7"/>
-            </svg>
-        </button>
+<button class="carousel-btn-prev" onclick="carouselPrev()">
+    <i class="fas fa-chevron-left"></i>
+</button>
+<button class="carousel-btn-next" onclick="carouselNext()">
+    <i class="fas fa-chevron-right"></i>
+</button>
         
         <!-- Carousel Indicators -->
         <div class="carousel-indicators">
@@ -171,12 +172,10 @@
         <h1 data-aos="fade-up">Welcome to sivazmart</h1>
         <p data-aos="fade-up" data-aos-delay="200">Discover exclusive luxury products at exceptional prices. 
            Shop from our premium collections across various categories.</p>
-        <a href="products.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">
-            Explore Collections
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-        </a>
+       <a href="products.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">
+    <i class="fas fa-store"></i>
+    Explore Collections
+</a>
     </div>
 </section>
 

@@ -299,6 +299,27 @@
       "email": "sarah@example.com",
       "password": "sarah123",
       "createdAt": "2026-01-28T06:20:00.000Z"
+    },
+    {
+      "name": "sathya",
+      "email": "sathya@gmail.com",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+      "createdAt": "2026-01-28T16:57:07.851Z",
+      "id": 8
+    },
+    {
+      "name": "Sathirabathi",
+      "email": "sathirabathi@gmail.com",
+      "password": "7137e0845e7f794191b5a0f7ec6325c0c2a938cf3a3f2484ebb7f14aaa51f9e1",
+      "createdAt": "2026-01-28T17:06:11.961Z",
+      "id": 9
+    },
+    {
+      "name": "sivaji",
+      "email": "sivajir@gmail.com",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "createdAt": "2026-01-29T04:32:55.441Z",
+      "id": 10
     }
   ],
   "carts": [
@@ -311,7 +332,7 @@
           "title": "iPhone 15 Pro",
           "price": 99999,
           "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
-          "qty": 6
+          "qty": 7
         },
         {
           "productId": 3,
@@ -319,6 +340,13 @@
           "price": 19999,
           "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
           "qty": 2
+        },
+        {
+          "productId": 7,
+          "title": "Desk Lamp",
+          "price": 2499,
+          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+          "qty": 1
         }
       ],
       "createdAt": "2026-01-28T04:59:53.128Z"
@@ -406,6 +434,12 @@
         }
       ],
       "createdAt": "2026-01-28T06:15:00.000Z"
+    },
+    {
+      "userId": 10,
+      "items": [],
+      "createdAt": "2026-01-29T04:33:04.032Z",
+      "id": 6
     }
   ],
   "categories": [
@@ -603,6 +637,73 @@
       "status": "processing",
       "createdAt": "2026-01-28T08:50:51.892Z",
       "id": 7
+    },
+    {
+      "userId": 10,
+      "items": [
+        {
+          "productId": 1,
+          "title": "iPhone 15 Pro",
+          "price": 99999,
+          "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 3,
+          "title": "Sony Headphones",
+          "price": 19999,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 4,
+          "title": "Nike Air Max",
+          "price": 12999,
+          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 8,
+          "title": "Fiction Book Set",
+          "price": 3999,
+          "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+          "qty": 2
+        },
+        {
+          "productId": 7,
+          "title": "Desk Lamp",
+          "price": 2499,
+          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+          "qty": 2
+        },
+        {
+          "productId": 6,
+          "title": "Coffee Maker",
+          "price": 8999,
+          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop",
+          "qty": 2
+        },
+        {
+          "productId": 5,
+          "title": "Leather Jacket",
+          "price": 15999,
+          "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
+          "qty": 2
+        }
+      ],
+      "shippingAddress": "Libero ab suscipit e",
+      "paymentMethod": "credit_card",
+      "total": 280988,
+      "status": "processing",
+      "createdAt": "2026-01-29T04:33:46.770Z",
+      "id": 8
     }
   ],
   "reviews": [

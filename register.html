@@ -33,6 +33,7 @@
         }
     }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -42,26 +43,27 @@
         <span class="logo-text">sivazmart</span>
     </a>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html" title="Home"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+        <li><a href="products.html" title="Products"><i class="fas fa-shopping-bag"></i><span class="nav-text">Products</span></a></li>
         <li>
-            <a href="cart.html" class="cart-icon">
-                Cart (<span class="cart-count">0</span>)
+            <a href="cart.html" class="cart-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="nav-text">Cart</span>
+                <span class="cart-count">0</span>
             </a>
         </li>
         <li class="auth-container">
             <div id="authButtons" style="display: flex; gap: 1rem;">
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
+                <a href="login.html" class="btn btn-outline" title="Login"><i class="fas fa-sign-in-alt"></i><span class="btn-text">Login</span></a>
+                <a href="register.html" class="btn btn-primary" title="Register"><i class="fas fa-user-plus"></i><span class="btn-text">Register</span></a>
             </div>
             <div id="userInfo" class="user-info" style="display: none;">
                 <span id="userName"></span>
-                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                <button id="logoutBtn" class="btn btn-outline" title="Logout"><i class="fas fa-sign-out-alt"></i><span class="btn-text">Logout</span></button>
             </div>
         </li>
     </ul>
-</nav>
-    </header>
+</nav>    </header>
 
     <main class="container">
         <div class="auth-container">
@@ -132,6 +134,7 @@
             </div>
         </div>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 
     <script src="script.js"></script>
 </body>

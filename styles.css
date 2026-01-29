@@ -817,11 +817,9 @@ nav {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.carousel-btn-prev svg,
-.carousel-btn-next svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2;
+.carousel-btn-prev i,
+.carousel-btn-next i {
+    font-size: 1.2rem;
 }
 
 .carousel-btn-prev {
@@ -960,9 +958,8 @@ nav {
     box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
 }
 
-.cta-button svg {
-    width: 20px;
-    height: 20px;
+.cta-button i {
+    font-size: 1.1rem;
     transition: transform 0.3s ease;
 }
 
@@ -2475,5 +2472,107 @@ footer {
     body {
         background-color: var(--bg-color);
         color: var(--text-color);
+    }
+}
+
+/* Add to Navigation Styles section */
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+}
+
+.nav-links i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-text {
+    display: inline;
+}
+
+.btn i {
+    margin-right: 6px;
+}
+
+.btn-text {
+    display: inline;
+}
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.75rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Mobile Responsive Styles for Icons */
+@media (max-width: 768px) {
+    .nav-text, .btn-text {
+        display: none;
+    }
+    
+    .nav-links a {
+        padding: 8px;
+        justify-content: center;
+    }
+    
+    .nav-links i {
+        font-size: 1.3rem;
+        margin-right: 0;
+    }
+    
+    .btn i {
+        margin-right: 0;
+    }
+    
+    .auth-container {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .auth-container .btn {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links a {
+        padding: 6px;
+    }
+    
+    .nav-links i {
+        font-size: 1.1rem;
     }
 }
