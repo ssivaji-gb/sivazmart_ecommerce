@@ -1,225 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEasy - Your One-Stop Ecommerce</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sivazmart</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    <!-- Add this to the head section of index.html -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <!-- Add these meta tags for better mobile experience -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="HandheldFriendly" content="true">
-<meta name="MobileOptimized" content="320">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
 
-<!-- iOS specific -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="ShopEasy">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<!-- Android specific -->
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#2563eb">
+    <!-- iOS specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="ShopEasy" />
 
-<!-- Windows Phone -->
-<meta name="msapplication-TileColor" content="#2563eb">
-<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <!-- Android specific -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#2563eb" />
 
-<!-- Prevent zoom on input focus in iOS -->
-<style>
-    @media screen and (max-width: 768px) {
-        input, select, textarea {
-            font-size: 16px !important;
+    <!-- Windows Phone -->
+    <meta name="msapplication-TileColor" content="#2563eb" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+
+    <!-- Prevent zoom on input focus in iOS -->
+    <style>
+      @media screen and (max-width: 768px) {
+        input,
+        select,
+        textarea {
+          font-size: 16px !important;
         }
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <!-- Header -->
     <header>
       <nav class="container">
-    <a href="index.html" class="logo">
-        <span class="logo-text">sivazmart</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="index.html" title="Home"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
-        <li><a href="products.html" title="Products"><i class="fas fa-shopping-bag"></i><span class="nav-text">Products</span></a></li>
-        <li>
+        <a href="index.html" class="logo">
+          <span class="logo-text">sivazmart</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html" title="Home"
+              ><i class="fas fa-home"></i><span class="nav-text">Home</span></a
+            >
+          </li>
+          <li>
+            <a href="products.html" title="Products"
+              ><i class="fas fa-shopping-bag"></i
+              ><span class="nav-text">Products</span></a
+            >
+          </li>
+          <li>
             <a href="cart.html" class="cart-icon" title="Cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="nav-text">Cart</span>
-                <span class="cart-count">0</span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="nav-text">Cart</span>
+              <span class="cart-count">0</span>
             </a>
-        </li>
-        <li class="auth-container">
-            <div id="authButtons" style="display: flex; gap: 1rem;">
-                <a href="login.html" class="btn btn-outline" title="Login"><i class="fas fa-sign-in-alt"></i><span class="btn-text">Login</span></a>
-                <a href="register.html" class="btn btn-primary" title="Register"><i class="fas fa-user-plus"></i><span class="btn-text">Register</span></a>
+          </li>
+          <li class="auth-container">
+            <div id="authButtons" style="display: flex; gap: 1rem">
+              <a href="login.html" class="btn btn-outline" title="Login"
+                ><i class="fas fa-sign-in-alt"></i
+                ><span class="btn-text">Login</span></a
+              >
+              <a href="register.html" class="btn btn-primary" title="Register"
+                ><i class="fas fa-user-plus"></i
+                ><span class="btn-text">Register</span></a
+              >
             </div>
-            <div id="userInfo" class="user-info" style="display: none;">
-                <span id="userName"></span>
-                <button id="logoutBtn" class="btn btn-outline" title="Logout"><i class="fas fa-sign-out-alt"></i><span class="btn-text">Logout</span></button>
+            <div id="userInfo" class="user-info" style="display: none">
+              <span id="userName"></span>
+              <button id="logoutBtn" class="btn btn-outline" title="Logout">
+                <i class="fas fa-sign-out-alt"></i
+                ><span class="btn-text">Logout</span>
+              </button>
             </div>
-        </li>
-    </ul>
-</nav>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Hero Section -->
-<!-- Premium Carousel Banner -->
-<section class="hero">
-    <!-- Carousel Banner -->
-    <div class="carousel-container">
+    <!-- Premium Carousel Banner -->
+    <section class="hero">
+      <!-- Carousel Banner -->
+      <div class="carousel-container">
         <div class="carousel-wrapper">
-            <!-- Slide 1: Fashion/Summer Collection -->
-            <div class="carousel-slide active" 
-              style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
-                <div class="carousel-overlay"></div>
-                <div class="carousel-content">
-                    <span class="carousel-badge" data-aos="fade-down">Summer 2024</span>
-                    <h2 data-aos="fade-up" data-aos-delay="200">Luxury Summer Collection</h2>
-                    <p data-aos="fade-up" data-aos-delay="400">Experience elegance with our exclusive summer fashion line</p>
-                    <a href="products.html?category=fashion" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
-                        Shop Collection
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+          <!-- Slide 1: Fashion/Summer Collection -->
+          <div
+            class="carousel-slide active"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80&quot;);
+            "
+          >
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+              <span class="carousel-badge" data-aos="fade-down"
+                >Summer 2024</span
+              >
+              <h2 data-aos="fade-up" data-aos-delay="200">
+                Luxury Summer Collection
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="400">
+                Experience elegance with our exclusive summer fashion line
+              </p>
+              <a
+                href="products.html?category=fashion"
+                class="carousel-btn"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                Shop Collection
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
-            
-            <!-- Slide 2: New Arrivals -->
-            <div class="carousel-slide" 
-                style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
-                <div class="carousel-overlay"></div>
-                <div class="carousel-content">
-                    <span class="carousel-badge" data-aos="fade-down">New Arrivals</span>
-                    <h2 data-aos="fade-up" data-aos-delay="200">Exclusive Premium Selection</h2>
-                    <p data-aos="fade-up" data-aos-delay="400">Discover our latest collection of luxury products</p>
-                    <a href="products.html" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
-                        Explore New Arrivals
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+          </div>
+
+          <!-- Slide 2: New Arrivals -->
+          <div
+            class="carousel-slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80&quot;);
+            "
+          >
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+              <span class="carousel-badge" data-aos="fade-down"
+                >New Arrivals</span
+              >
+              <h2 data-aos="fade-up" data-aos-delay="200">
+                Exclusive Premium Selection
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="400">
+                Discover our latest collection of luxury products
+              </p>
+              <a
+                href="products.html"
+                class="carousel-btn"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                Explore New Arrivals
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
-            
-            <!-- Slide 3: Luxury Lifestyle -->
-            <div class="carousel-slide" 
-              style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
-                <div class="carousel-overlay"></div>
-                <div class="carousel-content">
-                    <span class="carousel-badge" data-aos="fade-down">Free Shipping</span>
-                    <h2 data-aos="fade-up" data-aos-delay="200">Elevate Your Lifestyle</h2>
-                    <p data-aos="fade-up" data-aos-delay="400">Free shipping on orders over ₹5000. Use code: LUXURY500</p>
-                    <a href="products.html" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
-                        Shop Now
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+          </div>
+
+          <!-- Slide 3: Luxury Lifestyle -->
+          <div
+            class="carousel-slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80&quot;);
+            "
+          >
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+              <span class="carousel-badge" data-aos="fade-down"
+                >Free Shipping</span
+              >
+              <h2 data-aos="fade-up" data-aos-delay="200">
+                Elevate Your Lifestyle
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="400">
+                Free shipping on orders over ₹5000. Use code: LUXURY500
+              </p>
+              <a
+                href="products.html"
+                class="carousel-btn"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                Shop Now
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
-            
-            <!-- Slide 4: Electronics Premium -->
-            <div class="carousel-slide" 
-                 style="background-image: url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')">
-                <div class="carousel-overlay"></div>
-                <div class="carousel-content">
-                    <span class="carousel-badge" data-aos="fade-down">Premium Tech</span>
-                    <h2 data-aos="fade-up" data-aos-delay="200">State-of-the-Art Electronics</h2>
-                    <p data-aos="fade-up" data-aos-delay="400">Experience innovation with our premium technology collection</p>
-                    <a href="products.html?category=electronics" class="carousel-btn" data-aos="fade-up" data-aos-delay="600">
-                        Shop Electronics
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+          </div>
+
+          <!-- Slide 4: Electronics Premium -->
+          <div
+            class="carousel-slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80&quot;);
+            "
+          >
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+              <span class="carousel-badge" data-aos="fade-down"
+                >Premium Tech</span
+              >
+              <h2 data-aos="fade-up" data-aos-delay="200">
+                State-of-the-Art Electronics
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="400">
+                Experience innovation with our premium technology collection
+              </p>
+              <a
+                href="products.html?category=electronics"
+                class="carousel-btn"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                Shop Electronics
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
+          </div>
         </div>
-        
+
         <!-- Featured Products Section -->
-        <div class="featured-section" style="padding: 3rem 0; text-align: center; background: white;">
-            <div class="container">
-                <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary-color); font-family: 'Playfair Display', serif;">Featured Products</h2>
-                <div id="featuredProducts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;"></div>
-            </div>
+        <div
+          class="featured-section"
+          style="padding: 3rem 0; text-align: center; background: white"
+        >
+          <div class="container">
+            <h2
+              style="
+                font-size: 2.5rem;
+                margin-bottom: 3rem;
+                color: var(--primary-color);
+                font-family: &quot;Playfair Display&quot;, serif;
+              "
+            >
+              Featured Products
+            </h2>
+            <div
+              id="featuredProducts"
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+              "
+            ></div>
+          </div>
         </div>
-        
+
         <!-- Carousel Controls -->
-<button class="carousel-btn-prev" onclick="carouselPrev()">
-    <i class="fas fa-chevron-left"></i>
-</button>
-<button class="carousel-btn-next" onclick="carouselNext()">
-    <i class="fas fa-chevron-right"></i>
-</button>
-        
+        <button class="carousel-btn-prev" onclick="carouselPrev()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn-next" onclick="carouselNext()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
         <!-- Carousel Indicators -->
         <div class="carousel-indicators">
-            <span class="indicator active" onclick="carouselGoto(0)"></span>
-            <span class="indicator" onclick="carouselGoto(1)"></span>
-            <span class="indicator" onclick="carouselGoto(2)"></span>
-            <span class="indicator" onclick="carouselGoto(3)"></span>
+          <span class="indicator active" onclick="carouselGoto(0)"></span>
+          <span class="indicator" onclick="carouselGoto(1)"></span>
+          <span class="indicator" onclick="carouselGoto(2)"></span>
+          <span class="indicator" onclick="carouselGoto(3)"></span>
         </div>
-        
+
         <!-- Carousel Progress Bar -->
         <div class="carousel-progress">
-            <div class="progress-bar"></div>
+          <div class="progress-bar"></div>
         </div>
-    </div>
+      </div>
 
-    <!-- Hero Content -->
-    <div class="container hero-content">
+      <!-- Hero Content -->
+      <div class="container hero-content">
         <h1 data-aos="fade-up">Welcome to sivazmart</h1>
-        <p data-aos="fade-up" data-aos-delay="200">Discover exclusive luxury products at exceptional prices. 
-           Shop from our premium collections across various categories.</p>
-       <a href="products.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">
-    <i class="fas fa-store"></i>
-    Explore Collections
-</a>
-    </div>
-</section>
+        <p data-aos="fade-up" data-aos-delay="200">
+          Discover exclusive luxury products at exceptional prices. Shop from
+          our premium collections across various categories.
+        </p>
+        <a
+          href="products.html"
+          class="cta-button"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <i class="fas fa-store"></i>
+          Explore Collections
+        </a>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ShopEasy</h3>
-                    <p>Your trusted ecommerce platform for all your shopping needs.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>ShopEasy</h3>
+            <p>Your trusted ecommerce platform for all your shopping needs.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="copyright">
+          <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
 </html>

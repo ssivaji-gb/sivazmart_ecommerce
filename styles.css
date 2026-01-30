@@ -108,7 +108,6 @@ nav {
     margin-bottom: 3rem;
 }
 
-/* Add to existing styles.css - Luxury Animations Section */
 
 /* Logo Animation Styles */
 .logo {
@@ -2439,7 +2438,12 @@ footer {
 
 /* High-resolution displays */
 @media (min-resolution: 192dpi) {
-    /* Add high-res optimizations if needed */
+    .product-image,
+    .cart-item-image,
+    .product-details-image,
+    .category-banner-image {
+        image-rendering: optimizeQuality;
+    }
 }
 
 /* Accessibility: Reduced motion */
