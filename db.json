@@ -166,7 +166,7 @@
       "price": 7999,
       "description": "Digital air fryer with multiple presets",
       "category": "home",
-      "image": "https://images.unsplash.com/photo-1618588689595-15edf0ba1c4e?w=400&h=400&fit=crop",
+      "image": "https://images.unsplash.com/photo-1615874694520-474822394e73?w=400&h=400&fit=crop",
       "rating": 4.4,
       "stock": 40
     },
@@ -239,16 +239,6 @@
       "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
       "rating": 4.3,
       "stock": 45
-    },
-    {
-      "id": 25,
-      "title": "Blender",
-      "price": 3999,
-      "description": "High-speed blender for smoothies",
-      "category": "home",
-      "image": "https://images.unsplash.com/photo-1573521193823-7d5b2a36b2c6?w=400&h=400&fit=crop",
-      "rating": 4.2,
-      "stock": 60
     }
   ],
   "users": [
@@ -320,6 +310,20 @@
       "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
       "createdAt": "2026-01-29T04:32:55.441Z",
       "id": 10
+    },
+    {
+      "name": "ram",
+      "email": "ramkumar@gmail.com",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "createdAt": "2026-01-29T10:59:35.811Z",
+      "id": 11
+    },
+    {
+      "name": "ram",
+      "email": "ram@gmail.com",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "createdAt": "2026-01-29T11:21:30.923Z",
+      "id": 12
     }
   ],
   "carts": [
@@ -440,6 +444,32 @@
       "items": [],
       "createdAt": "2026-01-29T04:33:04.032Z",
       "id": 6
+    },
+    {
+      "userId": 8,
+      "items": [],
+      "createdAt": "2026-01-29T10:11:30.923Z",
+      "id": 7
+    },
+    {
+      "userId": 11,
+      "items": [],
+      "createdAt": "2026-01-29T10:59:35.893Z",
+      "id": 8
+    },
+    {
+      "userId": 12,
+      "items": [
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 3
+        }
+      ],
+      "createdAt": "2026-01-29T11:21:30.989Z",
+      "id": 9
     }
   ],
   "categories": [
@@ -704,6 +734,60 @@
       "status": "processing",
       "createdAt": "2026-01-29T04:33:46.770Z",
       "id": 8
+    },
+    {
+      "userId": 8,
+      "items": [
+        {
+          "productId": 7,
+          "title": "Desk Lamp",
+          "price": 2499,
+          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+          "qty": 1
+        }
+      ],
+      "shippingAddress": "Et sint sed molesti",
+      "paymentMethod": "credit_card",
+      "total": 2499,
+      "status": "processing",
+      "createdAt": "2026-01-29T10:11:57.042Z",
+      "id": 9
+    },
+    {
+      "userId": 8,
+      "items": [
+        {
+          "productId": 19,
+          "title": "Self-Help Book",
+          "price": 899,
+          "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
+          "qty": 1
+        }
+      ],
+      "shippingAddress": "Est omnis quidem sin",
+      "paymentMethod": "upi",
+      "total": 899,
+      "status": "processing",
+      "createdAt": "2026-01-29T10:15:38.224Z",
+      "id": 10
+    },
+    {
+      "userId": 11,
+      "items": [
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 1
+        }
+      ],
+      "shippingAddress": "xqsd",
+      "paymentMethod": "cod",
+      "total": 84999,
+      "status": "processing",
+      "createdAt": "2026-01-29T11:00:54.489Z",
+      "id": 11
     }
   ],
   "reviews": [

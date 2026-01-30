@@ -648,7 +648,31 @@ function initializeCarouselImages() {
     slides.forEach(function(slide, index) {
         // Add loaded class after image loads
         const bgImage = new Image();
-        const bgUrl = slide.style.backgroundImage.replace('url("', '').replace('")', '');
+        
+        // Properly extract URL from backgroundImage CSS property
+        const bgImageStyle = slide.style.backgroundImage;
+        let bgUrl = '';
+        
+        if (bgImageStyle) {
+            // Remove 'url(' and ')' from the CSS property value
+            bgUrl = bgImageStyle.replace(/url\(['"]?([^'")]+)['"]?\)/g, '$1');
+        }
+        
+        // If no inline style, try to get from computed style
+        if (!bgUrl) {
+            const computedStyle = window.getComputedStyle(slide);
+            const bgImageComputed = computedStyle.backgroundImage;
+            if (bgImageComputed && bgImageComputed !== 'none') {
+                bgUrl = bgImageComputed.replace(/url\(['"]?([^'")]+)['"]?\)/g, '$1');
+            }
+        }
+        
+        // Only proceed if URL was found
+        if (!bgUrl) {
+            console.warn('No background image found for carousel slide', index);
+            slide.classList.add('loaded');
+            return;
+        }
         
         slide.classList.add('loading');
         
@@ -662,6 +686,12 @@ function initializeCarouselImages() {
                     createParticles(slide);
                 }
             }, index * 300);
+        };
+        
+        bgImage.onerror = function() {
+            console.error('Failed to load carousel image:', bgUrl);
+            slide.classList.remove('loading');
+            slide.classList.add('loaded');
         };
         
         bgImage.src = bgUrl;
@@ -1286,35 +1316,54 @@ function initializeRegisterPage() {
 function initializeHomePage() {
     const featuredProducts = document.getElementById('featuredProducts');
     
+    // Handle case when element doesn't exist
+    if (!featuredProducts) {
+        console.warn('Featured products container not found in HTML');
+        return;
+    }
+    
     async function loadFeaturedProducts() {
         const products = await ProductService.getProducts();
         
         // Display featured products (first 4)
         const featured = products.slice(0, 4);
         
-        featured.forEach(function(product) {
+        featured.forEach((product) => {
             const productCard = document.createElement('div');
-            productCard.className = 'product-card';
+            productCard.classList.add('product-card');
+            
+            const rating = Math.floor(product.rating || 0);
+            const image = product.image || 'placeholder.jpg';
+            const title = product.title || 'No Title';
+            
             productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.title}" class="product-image">
+                <img src="${image}" alt="${title}" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">${product.title}</h3>
-                    <div class="product-price">${Utils.formatPrice(product.price)}</div>
-                    <div class="product-rating">
-                        ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}
-                        (${product.rating})
+                    <h3 class="product-title">${title}</h3>
+                    <div class="product-price">
+                        ${Utils.formatPrice(product.price)}
                     </div>
-                    <button class="btn btn-primary btn-block add-to-cart" data-id="${product.id}">
+                    <div class="product-rating">
+                        ${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}
+                        <span>(${product.rating})</span>
+                    </div>
+                    <button 
+                        class="btn btn-primary btn-block add-to-cart" 
+                        data-id="${product.id}">
                         Add to Cart
                     </button>
-                    <a href="product-details.html?id=${product.id}" class="btn btn-outline btn-block" style="margin-top: 0.5rem;">
+                    <a 
+                        href="product-details.html?id=${product.id}" 
+                        class="btn btn-outline btn-block" 
+                        style="margin-top: 0.5rem;">
                         View Details
                     </a>
                 </div>
             `;
+            
             featuredProducts.appendChild(productCard);
         });
-        
+  
         // Add event listeners to Add to Cart buttons
         document.querySelectorAll('.add-to-cart').forEach(function(button) {
             button.addEventListener('click', async function(e) {
