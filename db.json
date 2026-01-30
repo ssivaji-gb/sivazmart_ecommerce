@@ -246,230 +246,42 @@
       "id": 1,
       "name": "John Doe",
       "email": "john@example.com",
-      "password": "password123"
-    },
-    {
-      "id": 2,
-      "name": "Sathirabathi Sivaji",
-      "email": "sivaji@gmail.com",
-      "password": "1234",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
       "createdAt": "2026-01-28T04:59:53.059Z"
     },
     {
-      "id": 3,
-      "name": "Alice Johnson",
-      "email": "alice@example.com",
-      "password": "alice123",
-      "createdAt": "2026-01-28T06:00:00.000Z"
-    },
-    {
-      "id": 4,
-      "name": "Bob Williams",
-      "email": "bob@example.com",
-      "password": "bob123",
-      "createdAt": "2026-01-28T06:05:00.000Z"
-    },
-    {
-      "id": 5,
-      "name": "Emma Davis",
-      "email": "emma@example.com",
-      "password": "emma123",
-      "createdAt": "2026-01-28T06:10:00.000Z"
-    },
-    {
-      "id": 6,
-      "name": "Michael Brown",
-      "email": "michael@example.com",
-      "password": "michael123",
-      "createdAt": "2026-01-28T06:15:00.000Z"
-    },
-    {
-      "id": 7,
-      "name": "Sarah Miller",
-      "email": "sarah@example.com",
-      "password": "sarah123",
-      "createdAt": "2026-01-28T06:20:00.000Z"
-    },
-    {
-      "name": "sathya",
-      "email": "sathya@gmail.com",
-      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-      "createdAt": "2026-01-28T16:57:07.851Z",
-      "id": 8
-    },
-    {
-      "name": "Sathirabathi",
-      "email": "sathirabathi@gmail.com",
-      "password": "7137e0845e7f794191b5a0f7ec6325c0c2a938cf3a3f2484ebb7f14aaa51f9e1",
-      "createdAt": "2026-01-28T17:06:11.961Z",
-      "id": 9
+      "id": 13,
+      "name": "Sathirabathi Sivaji R",
+      "email": "siva@gmail.com",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "createdAt": "2026-01-30T05:31:00.398Z"
     },
     {
       "name": "sivaji",
-      "email": "sivajir@gmail.com",
-      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-      "createdAt": "2026-01-29T04:32:55.441Z",
-      "id": 10
-    },
-    {
-      "name": "ram",
-      "email": "ramkumar@gmail.com",
-      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
-      "createdAt": "2026-01-29T10:59:35.811Z",
-      "id": 11
-    },
-    {
-      "name": "ram",
-      "email": "ram@gmail.com",
-      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-      "createdAt": "2026-01-29T11:21:30.923Z",
-      "id": 12
+      "email": "sivaji@gmail.com",
+      "password": "8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414",
+      "createdAt": "2026-01-30T07:23:24.645Z",
+      "id": 14
     }
   ],
   "carts": [
     {
-      "id": 1,
-      "userId": 2,
-      "items": [
-        {
-          "productId": 1,
-          "title": "iPhone 15 Pro",
-          "price": 99999,
-          "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
-          "qty": 7
-        },
-        {
-          "productId": 3,
-          "title": "Sony Headphones",
-          "price": 19999,
-          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
-          "qty": 2
-        },
-        {
-          "productId": 7,
-          "title": "Desk Lamp",
-          "price": 2499,
-          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "createdAt": "2026-01-28T04:59:53.128Z"
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "items": [
-        {
-          "productId": 9,
-          "title": "MacBook Pro 16-inch",
-          "price": 224999,
-          "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 10,
-          "title": "Apple Watch Series 9",
-          "price": 45999,
-          "image": "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=400&h=400&fit=crop",
-          "qty": 2
-        }
-      ],
-      "createdAt": "2026-01-28T06:00:00.000Z"
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "items": [
-        {
-          "productId": 4,
-          "title": "Nike Air Max",
-          "price": 12999,
-          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 14,
-          "title": "Jeans",
-          "price": 3599,
-          "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop",
-          "qty": 2
-        }
-      ],
-      "createdAt": "2026-01-28T06:05:00.000Z"
-    },
-    {
-      "id": 4,
-      "userId": 5,
-      "items": [
-        {
-          "productId": 19,
-          "title": "Self-Help Book",
-          "price": 899,
-          "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
-          "qty": 3
-        },
-        {
-          "productId": 20,
-          "title": "Science Fiction Novel",
-          "price": 699,
-          "image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=400&fit=crop",
-          "qty": 2
-        }
-      ],
-      "createdAt": "2026-01-28T06:10:00.000Z"
-    },
-    {
-      "id": 5,
-      "userId": 6,
-      "items": [
-        {
-          "productId": 15,
-          "title": "Sofa Set",
-          "price": 45999,
-          "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 16,
-          "title": "Dining Table",
-          "price": 29999,
-          "image": "https://images.unsplash.com/photo-1565791380714-f4c5248caf0c?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "createdAt": "2026-01-28T06:15:00.000Z"
-    },
-    {
-      "userId": 10,
+      "id": 10,
+      "userId": 13,
       "items": [],
-      "createdAt": "2026-01-29T04:33:04.032Z",
-      "id": 6
-    },
-    {
-      "userId": 8,
-      "items": [],
-      "createdAt": "2026-01-29T10:11:30.923Z",
-      "id": 7
-    },
-    {
-      "userId": 11,
-      "items": [],
-      "createdAt": "2026-01-29T10:59:35.893Z",
-      "id": 8
+      "createdAt": "2026-01-30T05:31:00.479Z"
     },
     {
       "userId": 12,
-      "items": [
-        {
-          "productId": 2,
-          "title": "Samsung Galaxy S24",
-          "price": 84999,
-          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
-          "qty": 3
-        }
-      ],
-      "createdAt": "2026-01-29T11:21:30.989Z",
-      "id": 9
+      "items": [],
+      "createdAt": "2026-01-30T07:20:14.271Z",
+      "id": 11
+    },
+    {
+      "userId": 14,
+      "items": [],
+      "createdAt": "2026-01-30T07:23:33.060Z",
+      "id": 12
     }
   ],
   "categories": [
@@ -488,188 +300,103 @@
     {
       "id": "books",
       "name": "Books"
-    },
-    {
-      "id": "sports",
-      "name": "Sports & Fitness"
-    },
-    {
-      "id": "beauty",
-      "name": "Beauty & Health"
-    },
-    {
-      "id": "toys",
-      "name": "Toys & Games"
-    },
-    {
-      "id": "automotive",
-      "name": "Automotive"
     }
   ],
   "orders": [
     {
-      "id": 1,
-      "userId": 2,
-      "items": [
-        {
-          "productId": 1,
-          "title": "iPhone 15 Pro",
-          "price": 99999,
-          "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
-          "qty": 11
-        }
-      ],
-      "shippingAddress": "rghj",
-      "paymentMethod": "upi",
-      "total": 1099989,
-      "status": "processing",
-      "createdAt": "2026-01-28T05:00:29.927Z"
-    },
-    {
-      "id": 2,
-      "userId": 3,
+      "id": 13,
+      "userId": 12,
+      "userEmail": "ram@gmail.com",
+      "userName": "ram",
       "items": [
         {
           "productId": 2,
           "title": "Samsung Galaxy S24",
           "price": 84999,
           "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 3,
-          "title": "Sony Headphones",
-          "price": 19999,
-          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
-          "qty": 2
-        }
-      ],
-      "shippingAddress": "123 Main St, New York, NY 10001",
-      "paymentMethod": "credit_card",
-      "total": 124997,
-      "status": "delivered",
-      "createdAt": "2026-01-27T10:30:00.000Z"
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "items": [
-        {
-          "productId": 6,
-          "title": "Coffee Maker",
-          "price": 8999,
-          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 7,
-          "title": "Desk Lamp",
-          "price": 2499,
-          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
           "qty": 3
         }
       ],
-      "shippingAddress": "456 Oak Ave, Chicago, IL 60601",
+      "shippingAddress": "Est reiciendis vel c",
+      "city": "Ea distinctio Modi ",
+      "zipCode": "43914",
       "paymentMethod": "debit_card",
-      "total": 16496,
-      "status": "shipped",
-      "createdAt": "2026-01-26T14:45:00.000Z"
+      "total": 254997,
+      "status": "processing",
+      "createdAt": "2026-01-30T06:38:49.380Z",
+      "orderNumber": "ORD-1769755129380-241"
     },
     {
-      "id": 4,
-      "userId": 5,
+      "id": 16,
+      "userId": 8,
+      "userEmail": "sathya@gmail.com",
+      "userName": "sathya",
       "items": [
         {
-          "productId": 8,
-          "title": "Fiction Book Set",
-          "price": 3999,
-          "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
-          "qty": 2
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 1
         },
         {
-          "productId": 19,
-          "title": "Self-Help Book",
-          "price": 899,
-          "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
+          "productId": 3,
+          "title": "Sony Headphones",
+          "price": 19999,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
           "qty": 1
         }
       ],
-      "shippingAddress": "789 Pine Rd, Los Angeles, CA 90001",
-      "paymentMethod": "cod",
-      "total": 8897,
+      "shippingAddress": "Minima est quibusda",
+      "city": "New Delhi",
+      "zipCode": "110001",
+      "paymentMethod": "upi",
+      "total": 104998,
       "status": "processing",
-      "createdAt": "2026-01-28T08:00:00.000Z"
+      "createdAt": "2026-01-30T06:43:59.287Z",
+      "orderNumber": "ORD-1769755439287-842"
     },
     {
-      "id": 5,
-      "userId": 6,
+      "userId": 12,
+      "userEmail": "ram@gmail.com",
+      "userName": "ram",
       "items": [
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 3,
+          "title": "Sony Headphones",
+          "price": 19999,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+          "qty": 1
+        },
         {
           "productId": 4,
           "title": "Nike Air Max",
           "price": 12999,
           "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 5,
-          "title": "Leather Jacket",
-          "price": 15999,
-          "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
-          "qty": 1
+          "qty": 2
         }
       ],
-      "shippingAddress": "321 Elm St, Houston, TX 77001",
-      "paymentMethod": "upi",
-      "total": 28998,
-      "status": "delivered",
-      "createdAt": "2026-01-25T16:20:00.000Z"
-    },
-    {
-      "id": 6,
-      "userId": 7,
-      "items": [
-        {
-          "productId": 9,
-          "title": "MacBook Pro 16-inch",
-          "price": 224999,
-          "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 11,
-          "title": "Wireless Earbuds",
-          "price": 8999,
-          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "shippingAddress": "654 Maple Dr, Phoenix, AZ 85001",
-      "paymentMethod": "credit_card",
-      "total": 233998,
-      "status": "shipped",
-      "createdAt": "2026-01-28T09:15:00.000Z"
-    },
-    {
-      "userId": 2,
-      "items": [
-        {
-          "productId": 5,
-          "title": "Leather Jacket",
-          "price": 15999,
-          "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "shippingAddress": "Trichy",
-      "paymentMethod": "cod",
-      "total": 15999,
+      "shippingAddress": "Neque dolor eiusmod ",
+      "city": "Expedita occaecat et",
+      "zipCode": "18139",
+      "paymentMethod": "debit_card",
+      "total": 130996,
       "status": "processing",
-      "createdAt": "2026-01-28T08:50:51.892Z",
-      "id": 7
+      "createdAt": "2026-01-30T07:20:37.451Z",
+      "orderNumber": "ORD-1769757637451-406",
+      "id": 17
     },
     {
-      "userId": 10,
+      "userId": 14,
+      "userEmail": "sivaji@gmail.com",
+      "userName": "sivaji",
       "items": [
         {
           "productId": 1,
@@ -691,278 +418,21 @@
           "price": 19999,
           "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
           "qty": 1
-        },
-        {
-          "productId": 4,
-          "title": "Nike Air Max",
-          "price": 12999,
-          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
-          "qty": 1
-        },
-        {
-          "productId": 8,
-          "title": "Fiction Book Set",
-          "price": 3999,
-          "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
-          "qty": 2
-        },
-        {
-          "productId": 7,
-          "title": "Desk Lamp",
-          "price": 2499,
-          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
-          "qty": 2
-        },
-        {
-          "productId": 6,
-          "title": "Coffee Maker",
-          "price": 8999,
-          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop",
-          "qty": 2
-        },
-        {
-          "productId": 5,
-          "title": "Leather Jacket",
-          "price": 15999,
-          "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
-          "qty": 2
         }
       ],
-      "shippingAddress": "Libero ab suscipit e",
-      "paymentMethod": "credit_card",
-      "total": 280988,
+      "shippingAddress": "Esse quis aperiam e",
+      "city": "Culpa ut sint eius ",
+      "zipCode": "52640",
+      "paymentMethod": "debit_card",
+      "total": 204997,
       "status": "processing",
-      "createdAt": "2026-01-29T04:33:46.770Z",
-      "id": 8
-    },
-    {
-      "userId": 8,
-      "items": [
-        {
-          "productId": 7,
-          "title": "Desk Lamp",
-          "price": 2499,
-          "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "shippingAddress": "Et sint sed molesti",
-      "paymentMethod": "credit_card",
-      "total": 2499,
-      "status": "processing",
-      "createdAt": "2026-01-29T10:11:57.042Z",
-      "id": 9
-    },
-    {
-      "userId": 8,
-      "items": [
-        {
-          "productId": 19,
-          "title": "Self-Help Book",
-          "price": 899,
-          "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "shippingAddress": "Est omnis quidem sin",
-      "paymentMethod": "upi",
-      "total": 899,
-      "status": "processing",
-      "createdAt": "2026-01-29T10:15:38.224Z",
-      "id": 10
-    },
-    {
-      "userId": 11,
-      "items": [
-        {
-          "productId": 2,
-          "title": "Samsung Galaxy S24",
-          "price": 84999,
-          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
-          "qty": 1
-        }
-      ],
-      "shippingAddress": "xqsd",
-      "paymentMethod": "cod",
-      "total": 84999,
-      "status": "processing",
-      "createdAt": "2026-01-29T11:00:54.489Z",
-      "id": 11
+      "createdAt": "2026-01-30T07:23:59.363Z",
+      "orderNumber": "ORD-1769757839363-817",
+      "id": 18
     }
   ],
-  "reviews": [
-    {
-      "id": 1,
-      "productId": 1,
-      "userId": 2,
-      "rating": 5,
-      "comment": "Excellent phone! The camera quality is amazing.",
-      "createdAt": "2026-01-28T05:30:00.000Z"
-    },
-    {
-      "id": 2,
-      "productId": 1,
-      "userId": 3,
-      "rating": 4,
-      "comment": "Great device but a bit expensive.",
-      "createdAt": "2026-01-27T11:20:00.000Z"
-    },
-    {
-      "id": 3,
-      "productId": 4,
-      "userId": 4,
-      "rating": 5,
-      "comment": "Very comfortable shoes for running.",
-      "createdAt": "2026-01-26T09:45:00.000Z"
-    },
-    {
-      "id": 4,
-      "productId": 6,
-      "userId": 5,
-      "rating": 4,
-      "comment": "Good coffee maker for the price.",
-      "createdAt": "2026-01-25T14:30:00.000Z"
-    },
-    {
-      "id": 5,
-      "productId": 9,
-      "userId": 6,
-      "rating": 5,
-      "comment": "Best laptop I've ever used!",
-      "createdAt": "2026-01-24T10:15:00.000Z"
-    },
-    {
-      "id": 6,
-      "productId": 15,
-      "userId": 7,
-      "rating": 4,
-      "comment": "Comfortable sofa, good quality fabric.",
-      "createdAt": "2026-01-23T16:40:00.000Z"
-    },
-    {
-      "id": 7,
-      "productId": 19,
-      "userId": 2,
-      "rating": 5,
-      "comment": "Life-changing book! Highly recommended.",
-      "createdAt": "2026-01-22T13:25:00.000Z"
-    }
-  ],
-  "wishlists": [
-    {
-      "id": 1,
-      "userId": 2,
-      "items": [
-        1,
-        9,
-        22
-      ]
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "items": [
-        2,
-        10,
-        11
-      ]
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "items": [
-        4,
-        14,
-        23
-      ]
-    },
-    {
-      "id": 4,
-      "userId": 5,
-      "items": [
-        8,
-        19,
-        20
-      ]
-    },
-    {
-      "id": 5,
-      "userId": 6,
-      "items": [
-        15,
-        16,
-        25
-      ]
-    }
-  ],
-  "coupons": [
-    {
-      "id": 1,
-      "code": "WELCOME10",
-      "discount": 10,
-      "type": "percentage",
-      "minPurchase": 1000,
-      "maxDiscount": 1000,
-      "validUntil": "2026-12-31",
-      "isActive": true
-    },
-    {
-      "id": 2,
-      "code": "SAVE500",
-      "discount": 500,
-      "type": "fixed",
-      "minPurchase": 3000,
-      "maxDiscount": 500,
-      "validUntil": "2026-06-30",
-      "isActive": true
-    },
-    {
-      "id": 3,
-      "code": "FLAT20",
-      "discount": 20,
-      "type": "percentage",
-      "minPurchase": 5000,
-      "maxDiscount": 2000,
-      "validUntil": "2026-03-31",
-      "isActive": true
-    }
-  ],
-  "notifications": [
-    {
-      "id": 1,
-      "userId": 2,
-      "title": "Order Confirmed",
-      "message": "Your order #1 has been confirmed",
-      "type": "order",
-      "isRead": true,
-      "createdAt": "2026-01-28T05:01:00.000Z"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "title": "Welcome to ShopEasy",
-      "message": "Get 10% off on your first order with code WELCOME10",
-      "type": "promotion",
-      "isRead": false,
-      "createdAt": "2026-01-28T05:00:00.000Z"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "title": "Order Shipped",
-      "message": "Your order #2 has been shipped",
-      "type": "order",
-      "isRead": true,
-      "createdAt": "2026-01-27T15:30:00.000Z"
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "title": "Sale Alert",
-      "message": "Electronics sale up to 30% off",
-      "type": "promotion",
-      "isRead": false,
-      "createdAt": "2026-01-28T09:00:00.000Z"
-    }
-  ]
+  "reviews": [],
+  "wishlists": [],
+  "coupons": [],
+  "notifications": []
 }

@@ -1,3 +1,4 @@
+
 // Utility function to hash passwords using SHA-256
 async function hashPassword(password) {
     const encoder = new TextEncoder();
@@ -55,6 +56,21 @@ const Utils = {
             return true;
         }
         return false;
+    },
+
+    generateOrderNumber: function() {
+        return 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+    },
+
+    formatDate: function(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-IN', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
     }
 };
 
@@ -219,6 +235,67 @@ const CartService = {
     }
 };
 
+// Order Service Functions
+const OrderService = {
+    getOrders: async function(userId) {
+        try {
+            const response = await fetch(`${API_BASE}/orders?userId=${userId}`);
+            const orders = await response.json();
+            // Sort by latest first
+            return orders.sort(function(a, b) {
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            });
+        } catch (error) {
+            console.error('Error fetching orders:', error);
+            return [];
+        }
+    },
+
+    getOrderById: async function(orderId) {
+        try {
+            const response = await fetch(`${API_BASE}/orders/${orderId}`);
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching order:', error);
+            return null;
+        }
+    },
+
+    createOrder: async function(orderData) {
+        try {
+            const response = await fetch(`${API_BASE}/orders`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error creating order:', error);
+            throw error;
+        }
+    },
+
+    getOrderStatusClass: function(status) {
+        const statusClasses = {
+            'processing': 'status-processing',
+            'shipped': 'status-shipped',
+            'delivered': 'status-delivered',
+            'cancelled': 'status-cancelled'
+        };
+        return statusClasses[status] || 'status-processing';
+    },
+
+    getOrderStatusText: function(status) {
+        const statusText = {
+            'processing': 'Processing',
+            'shipped': 'Shipped',
+            'delivered': 'Delivered',
+            'cancelled': 'Cancelled'
+        };
+        return statusText[status] || 'Processing';
+    }
+};
+
 // Auth Service Functions
 const AuthService = {
     login: async function(email, password) {
@@ -369,14 +446,10 @@ const LuxuryAnimations = {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
-                // Random position
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation delay
                 particle.style.animationDelay = `${Math.random() * 4}s`;
                 
-                // Random size
                 const size = Math.random() * 3 + 1;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
@@ -389,7 +462,6 @@ const LuxuryAnimations = {
     initializeLogoAnimation: function() {
         const logo = document.querySelector('.logo');
         if (logo) {
-            // Add logo animation on page load
             logo.style.animation = 'none';
             setTimeout(function() {
                 logo.style.animation = 'logoEntrance 1s ease forwards';
@@ -410,12 +482,10 @@ const ImageBannerAnimations = {
         const banners = document.querySelectorAll('.category-banner-image');
         
         banners.forEach(function(banner, index) {
-            // Simulate image loading with delay for staggered effect
             setTimeout(function() {
                 banner.classList.remove('loading');
                 banner.classList.add('loaded');
                 
-                // Add random delay for floating elements animation
                 const floatElements = banner.querySelectorAll('.category-image-floating');
                 floatElements.forEach(function(element, i) {
                     element.style.animationDelay = `${i * 2}s`;
@@ -426,7 +496,6 @@ const ImageBannerAnimations = {
     },
 
     initializeParallaxEffect: function() {
-        // Only enable parallax on desktop
         if (window.innerWidth > 768) {
             window.addEventListener('scroll', function() {
                 const banners = document.querySelectorAll('.category-banner-image');
@@ -446,7 +515,6 @@ const ImageBannerAnimations = {
         
         banners.forEach(function(banner) {
             banner.addEventListener('mouseenter', function() {
-                // Add glow animation
                 const glow = banner.querySelector('.category-image-glow');
                 if (glow) {
                     glow.style.opacity = '1';
@@ -454,12 +522,10 @@ const ImageBannerAnimations = {
                     glow.style.height = '400px';
                 }
                 
-                // Add ripple effect
                 ImageBannerAnimations.createRippleEffect(banner);
             });
             
             banner.addEventListener('mouseleave', function() {
-                // Remove glow animation
                 const glow = banner.querySelector('.category-image-glow');
                 if (glow) {
                     glow.style.opacity = '0';
@@ -479,7 +545,6 @@ const ImageBannerAnimations = {
         ripple.style.animation = 'ripple 0.6s ease-out';
         ripple.style.zIndex = '2';
         
-        // Random position
         const x = Math.random() * 80 + 10;
         const y = Math.random() * 80 + 10;
         ripple.style.left = `${x}%`;
@@ -487,7 +552,6 @@ const ImageBannerAnimations = {
         
         banner.appendChild(ripple);
         
-        // Remove ripple after animation
         setTimeout(function() {
             if (ripple.parentNode === banner) {
                 banner.removeChild(ripple);
@@ -518,13 +582,11 @@ const ResponsiveUtils = {
 
     adjustForMobile: function() {
         if (this.isMobile()) {
-            // Disable parallax on mobile for better performance
             const banners = document.querySelectorAll('.category-banner-image');
             banners.forEach(function(banner) {
                 banner.style.backgroundAttachment = 'scroll';
             });
             
-            // Simplify animations on mobile
             document.body.classList.add('mobile-view');
         }
     },
@@ -532,13 +594,11 @@ const ResponsiveUtils = {
     handleResize: function() {
         this.adjustForMobile();
         
-        // Update cart layout if needed
         const cartItems = document.getElementById('cartItems');
         if (cartItems && this.isMobile()) {
             cartItems.style.flexDirection = 'column';
         }
         
-        // Update carousel height based on viewport
         const carousel = document.querySelector('.carousel-container');
         if (carousel) {
             if (this.isMobile()) {
@@ -552,7 +612,6 @@ const ResponsiveUtils = {
     },
 
     initializeTouchEvents: function() {
-        // Add touch event listeners for better mobile UX
         const productCards = document.querySelectorAll('.product-card');
         productCards.forEach(function(card) {
             card.addEventListener('touchstart', function() {
@@ -577,7 +636,6 @@ function showSlide(index) {
     const indicators = document.querySelectorAll('.indicator');
     const progressBar = document.querySelector('.progress-bar');
     
-    // Remove active class from all slides and indicators
     slides.forEach(function(slide) {
         slide.classList.remove('active');
         slide.classList.add('exiting');
@@ -589,7 +647,6 @@ function showSlide(index) {
         indicator.classList.remove('active');
     });
     
-    // Reset progress bar
     if (progressBar) {
         progressBar.style.transition = 'none';
         progressBar.style.width = '0%';
@@ -598,7 +655,6 @@ function showSlide(index) {
         }, 50);
     }
     
-    // Add active class to current slide and indicator
     if (slides[index]) {
         slides[index].classList.add('active');
     }
@@ -635,7 +691,6 @@ function resetCarouselInterval() {
     clearInterval(carouselInterval);
     carouselInterval = setInterval(autoSlide, 5000);
     
-    // Reset progress bar animation
     const progressBar = document.querySelector('.progress-bar');
     if (progressBar) {
         progressBar.style.width = '100%';
@@ -646,19 +701,15 @@ function initializeCarouselImages() {
     const slides = document.querySelectorAll('.carousel-slide');
     
     slides.forEach(function(slide, index) {
-        // Add loaded class after image loads
         const bgImage = new Image();
         
-        // Properly extract URL from backgroundImage CSS property
         const bgImageStyle = slide.style.backgroundImage;
         let bgUrl = '';
         
         if (bgImageStyle) {
-            // Remove 'url(' and ')' from the CSS property value
             bgUrl = bgImageStyle.replace(/url\(['"]?([^'")]+)['"]?\)/g, '$1');
         }
         
-        // If no inline style, try to get from computed style
         if (!bgUrl) {
             const computedStyle = window.getComputedStyle(slide);
             const bgImageComputed = computedStyle.backgroundImage;
@@ -667,7 +718,6 @@ function initializeCarouselImages() {
             }
         }
         
-        // Only proceed if URL was found
         if (!bgUrl) {
             console.warn('No background image found for carousel slide', index);
             slide.classList.add('loaded');
@@ -681,7 +731,6 @@ function initializeCarouselImages() {
                 slide.classList.remove('loading');
                 slide.classList.add('loaded');
                 
-                // Add particles after image loads
                 if (index === 0) {
                     createParticles(slide);
                 }
@@ -706,17 +755,14 @@ function createParticles(container) {
         const particle = document.createElement('div');
         particle.className = 'carousel-particle';
         
-        // Random position
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
         
-        // Random animation delay and duration
         const delay = Math.random() * 4;
         const duration = 4 + Math.random() * 4;
         particle.style.animationDelay = `${delay}s`;
         particle.style.animationDuration = `${duration}s`;
         
-        // Random size
         const size = Math.random() * 3 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
@@ -791,7 +837,6 @@ function createMobileMenu() {
     
     if (!nav || !navLinks) return;
     
-    // Create mobile menu button
     const menuButton = document.createElement('button');
     menuButton.className = 'mobile-menu-btn';
     menuButton.innerHTML = '☰';
@@ -812,13 +857,11 @@ function createMobileMenu() {
     nav.style.position = 'relative';
     nav.insertBefore(menuButton, nav.firstChild);
     
-    // Toggle menu function
     menuButton.addEventListener('click', function() {
         navLinks.classList.toggle('show');
         menuButton.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
             navLinks.classList.remove('show');
@@ -826,7 +869,6 @@ function createMobileMenu() {
         }
     });
     
-    // Show/hide based on screen size
     function updateMenuVisibility() {
         if (ResponsiveUtils.isMobile()) {
             menuButton.style.display = 'block';
@@ -847,7 +889,6 @@ function initializeResponsiveFeatures() {
     ResponsiveUtils.adjustForMobile();
     ResponsiveUtils.initializeTouchEvents();
     
-    // Handle window resize
     let resizeTimeout;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
@@ -871,7 +912,6 @@ function initializeProductsPage() {
         products = await ProductService.getProducts();
         categories = await ProductService.getCategories();
         
-        // Populate category filter
         categories.forEach(function(category) {
             const option = document.createElement('option');
             option.value = category.id;
@@ -914,7 +954,6 @@ function initializeProductsPage() {
             productsGrid.appendChild(productCard);
         });
         
-        // Add event listeners to Add to Cart buttons
         document.querySelectorAll('.add-to-cart').forEach(function(button) {
             button.addEventListener('click', async function(e) {
                 const productId = parseInt(e.target.dataset.id);
@@ -923,7 +962,6 @@ function initializeProductsPage() {
                 });
                 
                 if (!Utils.isLoggedIn()) {
-                    // Store pending product and redirect to login
                     localStorage.setItem('pendingCartProductId', productId);
                     window.location.href = 'login.html';
                     return;
@@ -940,7 +978,6 @@ function initializeProductsPage() {
     function applyFilters(productsList) {
         let filtered = [...productsList];
         
-        // Category filter
         const category = categoryFilter.value;
         if (category) {
             filtered = filtered.filter(function(product) {
@@ -948,7 +985,6 @@ function initializeProductsPage() {
             });
         }
         
-        // Sort filter
         const sortBy = sortFilter.value;
         if (sortBy === 'price-asc') {
             filtered.sort(function(a, b) {
@@ -967,7 +1003,6 @@ function initializeProductsPage() {
         renderProducts(filtered);
     }
     
-    // Search functionality
     searchInput.addEventListener('input', async function(e) {
         const query = e.target.value.toLowerCase();
         if (query.length >= 2) {
@@ -1006,7 +1041,6 @@ function initializeProductDetailsPage() {
             return;
         }
         
-        // Update page content
         document.getElementById('productImage').src = product.image;
         document.getElementById('productImage').alt = product.title;
         document.getElementById('productTitle').textContent = product.title;
@@ -1018,7 +1052,6 @@ function initializeProductDetailsPage() {
             (${product.rating})
         `;
         
-        // Add to cart functionality
         const addToCartBtn = document.getElementById('addToCartBtn');
         const quantityInput = document.getElementById('quantity');
         
@@ -1026,7 +1059,6 @@ function initializeProductDetailsPage() {
             const quantity = parseInt(quantityInput.value) || 1;
             
             if (!Utils.isLoggedIn()) {
-                // Store pending product and redirect to login
                 localStorage.setItem('pendingCartProductId', productId);
                 localStorage.setItem('pendingCartQuantity', quantity);
                 window.location.href = 'login.html';
@@ -1099,7 +1131,6 @@ function initializeCartPage() {
         cartTotal.textContent = Utils.formatPrice(total);
         checkoutBtn.disabled = false;
         
-        // Add event listeners
         document.querySelectorAll('.decrease').forEach(function(btn) {
             btn.addEventListener('click', async function(e) {
                 const productId = parseInt(e.target.dataset.id);
@@ -1141,7 +1172,6 @@ function initializeCartPage() {
         });
     }
     
-    // Checkout button
     checkoutBtn.addEventListener('click', function() {
         window.location.href = 'checkout.html';
     });
@@ -1149,6 +1179,7 @@ function initializeCartPage() {
     loadCart();
 }
 
+// Enhanced Checkout Page Initialization
 function initializeCheckoutPage() {
     if (Utils.redirectIfNotLoggedIn()) return;
     
@@ -1164,72 +1195,279 @@ function initializeCheckoutPage() {
             return;
         }
         
-        // Populate order summary
         const total = CartService.calculateTotal(cart);
         orderSummary.innerHTML = `
             <h3>Order Summary</h3>
-            ${cart.items.map(function(item) {
-                return `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span>${item.title} x ${item.qty}</span>
-                        <span>${Utils.formatPrice(item.price * item.qty)}</span>
-                    </div>
-                `;
-            }).join('')}
-            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                <span>Total</span>
+            <div style="margin: 1.5rem 0;">
+                ${cart.items.map(function(item) {
+                    return `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <img src="${item.image}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <div style="font-weight: 600;">${item.title}</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-light);">Qty: ${item.qty}</div>
+                                </div>
+                            </div>
+                            <div style="font-weight: 600; color: var(--primary-color);">
+                                ${Utils.formatPrice(item.price * item.qty)}
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--border-color);">
+                <span>Total Amount</span>
                 <span>${Utils.formatPrice(total)}</span>
             </div>
         `;
         
-        // Auto-fill form with user data
         document.getElementById('fullName').value = user.name || '';
+        document.getElementById('email').value = user.email || '';
         
-        // Handle form submission
         checkoutForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const shippingAddress = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            
+            if (!shippingAddress || !city || !zip || !paymentMethod) {
+                Utils.showMessage('Please fill in all required fields', 'error');
+                return;
+            }
+            
             const orderData = {
                 userId: user.id,
-                items: cart.items,
-                shippingAddress: document.getElementById('address').value,
-                paymentMethod: document.getElementById('paymentMethod').value,
+                userEmail: user.email,
+                userName: user.name,
+                items: cart.items.map(item => ({
+                    productId: item.productId,
+                    title: item.title,
+                    price: item.price,
+                    image: item.image,
+                    qty: item.qty
+                })),
+                shippingAddress: shippingAddress,
+                city: city,
+                zipCode: zip,
+                paymentMethod: paymentMethod,
                 total: total,
                 status: 'processing',
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                orderNumber: Utils.generateOrderNumber()
             };
             
             try {
-                // Save order to mock server
-                await fetch(`${API_BASE}/orders`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(orderData)
-                });
+                const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<div class="loading loading-small"></div> Processing...';
+                submitBtn.disabled = true;
+                
+                // Save order to database
+                const newOrder = await OrderService.createOrder(orderData);
                 
                 // Clear cart
                 await CartService.clearCart(user.id);
                 
                 // Show success message
                 checkoutForm.innerHTML = `
-                    <div class="success-message">
-                        <h3>Order Placed Successfully!</h3>
-                        <p>Thank you for your order. Your order ID is #${Date.now()}</p>
-                        <p>You will receive a confirmation email shortly.</p>
-                        <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">
-                            Continue Shopping
-                        </a>
+                    <div class="success-message" style="text-align: center;">
+                        <h3><i class="fas fa-check-circle" style="color: var(--secondary-color); margin-right: 0.5rem;"></i>Order Placed Successfully!</h3>
+                        <div style="margin: 1.5rem 0;">
+                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">
+                                Order ID: <strong>${newOrder.orderNumber}</strong>
+                            </div>
+                            <div style="color: var(--text-light); margin-bottom: 1rem;">
+                                Total Amount: <strong>${Utils.formatPrice(newOrder.total)}</strong>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 1rem; border-radius: var(--radius); margin: 1rem 0;">
+                                <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">Shipping Address:</div>
+                                <div>${newOrder.shippingAddress}, ${newOrder.city}, ${newOrder.zipCode}</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <a href="orders.html" class="btn btn-primary">
+                                <i class="fas fa-history"></i> View Order History
+                            </a>
+                            <a href="index.html" class="btn btn-outline">
+                                <i class="fas fa-shopping-bag"></i> Continue Shopping
+                            </a>
+                        </div>
                     </div>
                 `;
                 
                 Navigation.updateCartCount();
+                
             } catch (error) {
                 Utils.showMessage('Error placing order. Please try again.', 'error');
+                
+                const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
             }
         });
     }
     
     loadCheckout();
+}
+
+// Initialize Orders Page (Order History)
+function initializeOrdersPage() {
+    if (Utils.redirectIfNotLoggedIn()) return;
+    
+    const ordersList = document.getElementById('ordersList');
+    const noOrders = document.getElementById('noOrders');
+    const user = Utils.getCurrentUser();
+    
+    async function loadOrders() {
+        const orders = await OrderService.getOrders(user.id);
+        renderOrders(orders);
+    }
+    
+    function renderOrders(orders) {
+        ordersList.innerHTML = '';
+        
+        if (orders.length === 0) {
+            ordersList.style.display = 'none';
+            noOrders.style.display = 'block';
+            return;
+        }
+        
+        noOrders.style.display = 'none';
+        ordersList.style.display = 'flex';
+        
+        orders.forEach(function(order) {
+            const orderCard = document.createElement('div');
+            orderCard.className = 'order-card';
+            
+            const itemCount = order.items.reduce(function(total, item) {
+                return total + item.qty;
+            }, 0);
+            
+            const statusClass = OrderService.getOrderStatusClass(order.status);
+            const statusText = OrderService.getOrderStatusText(order.status);
+            
+            orderCard.innerHTML = `
+                <div class="order-header">
+                    <div class="order-info">
+                        <div class="order-id">
+                            <i class="fas fa-receipt"></i>
+                            Order #${order.orderNumber || order.id}
+                        </div>
+                        <div class="order-date">
+                            <i class="far fa-calendar"></i>
+                            ${Utils.formatDate(order.createdAt)}
+                        </div>
+                    </div>
+                    <div class="order-status ${statusClass}">
+                        ${statusText}
+                    </div>
+                </div>
+                
+                <div class="order-body">
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <div class="summary-label">Total Amount</div>
+                            <div class="summary-value">${Utils.formatPrice(order.total)}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Items</div>
+                            <div class="summary-value">${itemCount} item${itemCount !== 1 ? 's' : ''}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Payment Method</div>
+                            <div class="summary-value">${order.paymentMethod === 'cod' ? 'Cash on Delivery' : 
+                                                      order.paymentMethod === 'upi' ? 'UPI' : 
+                                                      order.paymentMethod === 'credit_card' ? 'Credit Card' : 
+                                                      order.paymentMethod === 'debit_card' ? 'Debit Card' : order.paymentMethod}</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Shipping To</div>
+                            <div class="summary-value">${order.city || 'N/A'}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-items">
+                        <h4 style="margin-bottom: 1rem; color: var(--text-color);">Ordered Items</h4>
+                        ${order.items.map(function(item) {
+                            return `
+                                <div class="order-item">
+                                    <img src="${item.image}" alt="${item.title}" class="order-item-image">
+                                    <div class="order-item-details">
+                                        <div class="order-item-title">${item.title}</div>
+                                        <div class="order-item-price">${Utils.formatPrice(item.price)} each</div>
+                                        <div class="order-item-qty">Quantity: ${item.qty}</div>
+                                    </div>
+                                    <div class="order-item-price">
+                                        ${Utils.formatPrice(item.price * item.qty)}
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                
+                <div class="order-footer">
+                    <div class="order-total">
+                        Total: <span>${Utils.formatPrice(order.total)}</span>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn btn-outline btn-small track-order" data-id="${order.id}">
+                            <i class="fas fa-truck"></i> Track Order
+                        </button>
+                        <button class="btn btn-outline btn-small reorder" data-id="${order.id}">
+                            <i class="fas fa-redo"></i> Reorder
+                        </button>
+                        <a href="orders.html" class="btn btn-outline btn-small">
+                            <i class="fas fa-print"></i> Print
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            ordersList.appendChild(orderCard);
+        });
+        
+        // Add event listeners for track and reorder buttons
+        document.querySelectorAll('.track-order').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const orderId = e.target.closest('button').dataset.id;
+                Utils.showMessage(`Order #${orderId} is currently being processed.`, 'info', 3000);
+            });
+        });
+        
+        document.querySelectorAll('.reorder').forEach(function(btn) {
+            btn.addEventListener('click', async function(e) {
+                const orderId = e.target.closest('button').dataset.id;
+                const order = await OrderService.getOrderById(orderId);
+                
+                if (order) {
+                    for (const item of order.items) {
+                        const product = {
+                            id: item.productId,
+                            title: item.title,
+                            price: item.price,
+                            image: item.image
+                        };
+                        await CartService.addToCart(user.id, product, item.qty);
+                    }
+                    
+                    Utils.showMessage('All items have been added to your cart!', 'success');
+                    Navigation.updateCartCount();
+                    
+                    setTimeout(function() {
+                        window.location.href = 'cart.html';
+                    }, 1500);
+                }
+            });
+        });
+    }
+    
+    loadOrders();
 }
 
 function initializeLoginPage() {
@@ -1245,7 +1483,6 @@ function initializeLoginPage() {
         try {
             const user = await AuthService.login(email, password);
             
-            // Check for pending cart product
             const pendingProductId = localStorage.getItem('pendingCartProductId');
             const pendingQuantity = localStorage.getItem('pendingCartQuantity') || 1;
             
@@ -1290,7 +1527,6 @@ function initializeRegisterPage() {
             const user = await AuthService.register(name, email, password);
             Utils.setCurrentUser(user);
             
-            // Check for pending cart product
             const pendingProductId = localStorage.getItem('pendingCartProductId');
             const pendingQuantity = localStorage.getItem('pendingCartQuantity') || 1;
             
@@ -1316,7 +1552,6 @@ function initializeRegisterPage() {
 function initializeHomePage() {
     const featuredProducts = document.getElementById('featuredProducts');
     
-    // Handle case when element doesn't exist
     if (!featuredProducts) {
         console.warn('Featured products container not found in HTML');
         return;
@@ -1325,7 +1560,6 @@ function initializeHomePage() {
     async function loadFeaturedProducts() {
         const products = await ProductService.getProducts();
         
-        // Display featured products (first 4)
         const featured = products.slice(0, 4);
         
         featured.forEach((product) => {
@@ -1364,7 +1598,6 @@ function initializeHomePage() {
             featuredProducts.appendChild(productCard);
         });
   
-        // Add event listeners to Add to Cart buttons
         document.querySelectorAll('.add-to-cart').forEach(function(button) {
             button.addEventListener('click', async function(e) {
                 const productId = parseInt(e.target.dataset.id);
@@ -1373,7 +1606,6 @@ function initializeHomePage() {
                 });
                 
                 if (!Utils.isLoggedIn()) {
-                    // Store pending product and redirect to login
                     localStorage.setItem('pendingCartProductId', productId);
                     window.location.href = 'login.html';
                     return;
@@ -1390,6 +1622,83 @@ function initializeHomePage() {
     loadFeaturedProducts();
 }
 
+function initializeOrdersPage() {
+    if (Utils.redirectIfNotLoggedIn()) return;
+    
+    const ordersList = document.getElementById('ordersList');
+    const noOrders = document.getElementById('noOrders');
+    const user = Utils.getCurrentUser();
+    
+    async function loadOrders() {
+        try {
+            const response = await fetch(`${API_BASE}/orders?userId=${user.id}`);
+            const orders = await response.json();
+            
+            if (orders.length === 0) {
+                ordersList.style.display = 'none';
+                noOrders.style.display = 'block';
+                return;
+            }
+            
+            ordersList.innerHTML = '';
+            
+            orders.forEach(function(order) {
+                const orderDate = new Date(order.createdAt).toLocaleDateString('en-IN');
+                const orderStatus = order.status || 'processing';
+                const statusClass = `status-${orderStatus}`;
+                
+                const orderCard = document.createElement('div');
+                orderCard.className = 'order-card';
+                orderCard.innerHTML = `
+                    <div class="order-header">
+                        <div class="order-info">
+                            <h3>Order #${order.id}</h3>
+                            <p class="order-date">${orderDate}</p>
+                        </div>
+                        <div class="order-status">
+                            <span class="status-badge ${statusClass}">${orderStatus.charAt(0).toUpperCase() + orderStatus.slice(1)}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="order-items">
+                        ${order.items.map(function(item) {
+                            return `
+                                <div class="order-item">
+                                    <img src="${item.image}" alt="${item.title}" class="order-item-image">
+                                    <div class="order-item-details">
+                                        <h4>${item.title}</h4>
+                                        <p>Quantity: ${item.qty} × ${Utils.formatPrice(item.price)}</p>
+                                    </div>
+                                    <div class="order-item-price">
+                                        ${Utils.formatPrice(item.price * item.qty)}
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    <div class="order-footer">
+                        <div class="order-address">
+                            <p><strong>Shipping Address:</strong></p>
+                            <p>${order.shippingAddress || 'Not provided'}</p>
+                        </div>
+                        <div class="order-total">
+                            <p>Total: <strong>${Utils.formatPrice(order.total)}</strong></p>
+                        </div>
+                    </div>
+                `;
+                
+                ordersList.appendChild(orderCard);
+            });
+        } catch (error) {
+            console.error('Error loading orders:', error);
+            ordersList.innerHTML = '<p class="message message-error">Failed to load orders</p>';
+        }
+    }
+    
+    loadOrders();
+}
+
 // Main initialization function
 function initializePage() {
     Navigation.init();
@@ -1398,20 +1707,17 @@ function initializePage() {
     initializeResponsiveFeatures();
     createMobileMenu();
     
-    // Initialize carousel if exists
     initializeCarouselImages();
     initializeCarouselParallax();
     initializeCarouselKeyboard();
     initializeCarouselTouch();
     
-    // Start carousel auto-rotation if carousel exists
     const carousel = document.querySelector('.carousel-container');
     if (carousel) {
         showSlide(0);
         carouselInterval = setInterval(autoSlide, 5000);
     }
     
-    // Add exit animation style
     const style = document.createElement('style');
     style.textContent = `
         .carousel-slide.exiting {
@@ -1443,7 +1749,6 @@ function initializePage() {
     `;
     document.head.appendChild(style);
     
-    // Add mobile menu styles
     const mobileStyle = document.createElement('style');
     mobileStyle.textContent = `
         @media (max-width: 768px) {
@@ -1473,25 +1778,21 @@ function initializePage() {
                 margin: 0.5rem 0;
             }
             
-            /* Touch-friendly button sizing */
             .btn, button {
                 min-height: 44px;
                 min-width: 44px;
             }
             
-            /* Prevent text selection on tap */
             .btn, button, a {
                 -webkit-tap-highlight-color: transparent;
                 user-select: none;
             }
             
-            /* Improve form input sizing */
             input, select, textarea {
                 font-size: 16px !important;
             }
         }
         
-        /* Hover effects only on non-touch devices */
         @media (hover: hover) {
             .btn:hover {
                 transform: translateY(-2px);
@@ -1517,6 +1818,8 @@ function initializePage() {
         initializeLoginPage();
     } else if (window.location.pathname.includes('register.html')) {
         initializeRegisterPage();
+    } else if (window.location.pathname.includes('orders.html')) {
+        initializeOrdersPage();
     } else if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
         initializeHomePage();
     }

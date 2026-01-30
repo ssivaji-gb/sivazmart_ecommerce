@@ -51,6 +51,7 @@
                 <span class="cart-count">0</span>
             </a>
         </li>
+        <li><a href="orders.html" title="Order History"><i class="fas fa-history"></i><span class="nav-text">Orders</span></a></li>
         <li class="auth-container">
             <div id="authButtons" style="display: flex; gap: 1rem;">
                 <a href="login.html" class="btn btn-outline" title="Login"><i class="fas fa-sign-in-alt"></i><span class="btn-text">Login</span></a>
@@ -62,7 +63,7 @@
             </div>
         </li>
     </ul>
-</nav>    </header>
+</nav>   </header>
 
     <main class="container">
         <h1 style="margin: 2rem 0;">Checkout</h1>
@@ -83,19 +84,21 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="address">Shipping Address</label>
-                        <textarea id="address" class="form-control" rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="zip">ZIP Code</label>
-                        <input type="text" id="zip" class="form-control" required>
-                    </div>
+    <label for="address">Shipping Address</label>
+    <textarea id="address" class="form-control" rows="4" required placeholder="Full street address"></textarea>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="zip">ZIP Code</label>
+        <input type="text" id="zip" class="form-control" required>
+    </div>
+</div>
                     
                     <div class="form-group">
                         <label for="paymentMethod">Payment Method</label>
