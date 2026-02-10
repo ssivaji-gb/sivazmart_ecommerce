@@ -1,4 +1,3 @@
-
 // Utility function to hash passwords using SHA-256
 async function hashPassword(password) {
     const encoder = new TextEncoder();

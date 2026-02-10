@@ -156,7 +156,7 @@
       "price": 29999,
       "description": "6-seater wooden dining table",
       "category": "home",
-      "image": "https://images.unsplash.com/photo-1565791380714-f4c5248caf0c?w=400&h=400&fit=crop",
+      "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400&h=400&fit=crop",
       "rating": 4.3,
       "stock": 25
     },
@@ -262,6 +262,20 @@
       "password": "8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414",
       "createdAt": "2026-01-30T07:23:24.645Z",
       "id": 14
+    },
+    {
+      "name": "sivaji",
+      "email": "sivajirrr@gmail.com",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+      "createdAt": "2026-01-30T07:38:08.258Z",
+      "id": 15
+    },
+    {
+      "name": "sivaji",
+      "email": "sivaj@gmail.com",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+      "createdAt": "2026-02-04T15:47:14.929Z",
+      "id": 16
     }
   ],
   "carts": [
@@ -282,6 +296,18 @@
       "items": [],
       "createdAt": "2026-01-30T07:23:33.060Z",
       "id": 12
+    },
+    {
+      "userId": 15,
+      "items": [],
+      "createdAt": "2026-01-30T07:38:08.287Z",
+      "id": 13
+    },
+    {
+      "userId": 16,
+      "items": [],
+      "createdAt": "2026-02-04T15:47:30.189Z",
+      "id": 14
     }
   ],
   "categories": [
@@ -429,6 +455,59 @@
       "createdAt": "2026-01-30T07:23:59.363Z",
       "orderNumber": "ORD-1769757839363-817",
       "id": 18
+    },
+    {
+      "userId": 15,
+      "userEmail": "sivajirrr@gmail.com",
+      "userName": "sivaji",
+      "items": [
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 3
+        }
+      ],
+      "shippingAddress": "chennai",
+      "city": "chennai",
+      "zipCode": "1234567",
+      "paymentMethod": "cod",
+      "total": 254997,
+      "status": "processing",
+      "createdAt": "2026-01-30T07:38:51.034Z",
+      "orderNumber": "ORD-1769758731034-443",
+      "id": 19
+    },
+    {
+      "userId": 16,
+      "userEmail": "sivaj@gmail.com",
+      "userName": "sivaji",
+      "items": [
+        {
+          "productId": 1,
+          "title": "iPhone 15 Pro",
+          "price": 99999,
+          "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop",
+          "qty": 1
+        },
+        {
+          "productId": 2,
+          "title": "Samsung Galaxy S24",
+          "price": 84999,
+          "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+          "qty": 2
+        }
+      ],
+      "shippingAddress": "Commodo quam nostrum",
+      "city": "Neque illum in arch",
+      "zipCode": "45374",
+      "paymentMethod": "credit_card",
+      "total": 269997,
+      "status": "processing",
+      "createdAt": "2026-02-04T15:47:53.642Z",
+      "orderNumber": "ORD-1770220073642-691",
+      "id": 20
     }
   ],
   "reviews": [],
